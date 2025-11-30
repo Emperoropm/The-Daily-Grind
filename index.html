@@ -5,448 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Daily Grind Cafe</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Base Styles and Variables */
-:root {
-    --primary-color: #8B4513; /* SaddleBrown */
-    --secondary-color: #D2B48C; /* Tan */
-    --text-color: #333;
-    --bg-color: #f9f9f9;
-    --header-bg: #fff;
-    --card-bg: #fff;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.dark-theme {
-    --primary-color: #D2B48C;
-    --secondary-color: #8B4513;
-    --text-color: #f0f0f0;
-    --bg-color: #1a1a1a;
-    --header-bg: #2a2a2a;
-    --card-bg: #2a2a2a;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-}
-
-/* Header & Navigation */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background-color: var(--header-bg);
-    box-shadow: var(--shadow);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    margin: 0 0.2rem;
-    border-radius: 4px;
-}
-
-.nav-links li a:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* Theme Toggle Switch */
-.theme-toggle {
-    display: flex;
-    align-items: center;
-}
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-    margin-right: 10px;
-}
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-}
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-}
-input:checked + .slider {
-    background-color: var(--primary-color);
-}
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-.slider.round {
-    border-radius: 34px;
-}
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    margin-top: 60px; /* Offset for fixed header */
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Menu Preview Section */
-.menu-preview {
-    padding: 5rem 5%;
-    text-align: center;
-    background-color: var(--bg-color);
-}
-
-.menu-preview h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-}
-
-.menu-items {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.item {
-    background: var(--card-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    max-width: 300px;
-    text-align: center;
-}
-
-.item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.item h3 {
-    margin: 1rem 0 0.5rem;
-    color: var(--primary-color);
-}
-
-.item p {
-    padding: 0 1rem 1.5rem;
-    color: var(--text-color);
-}
-
-/* About Section */
-.about {
-    padding: 5rem 5%;
-    background-color: var(--card-bg);
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-}
-
-.about-text, .about-image {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.video-container {
-    margin-top: 2rem;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-}
-
-/* Contact Section */
-.contact {
-    padding: 5rem 5%;
-    background-color: var(--bg-color);
-}
-
-.contact h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-}
-
-.contact-container {
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-}
-
-.contact-info, .map {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-info h3 {
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.contact-info p {
-    margin-bottom: 1rem;
-}
-
-.hours {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.hours th, .hours td {
-    border: 1px solid var(--text-color);
-    padding: 0.5rem;
-    text-align: left;
-}
-
-.hours th {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.map-placeholder {
-    background-color: var(--card-bg);
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-}
-
-/* Enhanced Menu Section Styles */
-.menu-categories {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.category-btn {
-    padding: 0.7rem 1.5rem;
-    background-color: var(--card-bg);
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.category-btn:hover,
-.category-btn.active {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.menu-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.item {
-    background: var(--card-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.item-info {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.item-info h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--primary-color);
-    font-size: 1.3rem;
-}
-
-.item-info p {
-    margin: 0 0 1rem 0;
-    color: var(--text-color);
-    flex-grow: 1;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.price {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-top: auto;
-}
-
-/* Menu Filtering Animation */
-.item {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.4s ease;
-}
-
-.item.hidden {
-    opacity: 0;
-    transform: scale(0.8);
-    display: none;
-}
-
-/* Footer */
-footer {
-    background-color: var(--header-bg);
-    color: var(--text-color);
-    text-align: center;
-    padding: 2rem 5%;
-    margin-top: 2rem;
-}
-
-.social-links a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin: 0 0.5rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    .nav-links {
-        margin-top: 1rem;
-    }
-    .nav-links li a {
-        padding: 0.3rem 0.7rem;
-        font-size: 0.9rem;
-    }
-    .theme-toggle {
-        margin-top: 1rem;
-    }
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-    .menu-items, .about-content, .contact-container {
-        flex-direction: column;
-    }
-}
-    </style>
+   
 </head>
 <body class="light-theme">
     <!-- Header & Navigation -->
@@ -579,115 +138,100 @@ footer {
         </div>
     </section>
 
-    <!-- Contact & Location Section -->
-    <section id="contact" class="contact">
-        <h2>Visit Us</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Location & Hours</h3>
-                <p><strong>Address:</strong><br>123 Coffee Lane, Melbourne VIC 3000</p>
-                <p><strong>Phone:</strong><br>(03) 9123 4567</p>
-                <table class="hours">
-                    <tr><th>Day</th><th>Hours</th></tr>
-                    <tr><td>Mon - Fri</td><td>7:00 AM - 4:00 PM</td></tr>
-                    <tr><td>Saturday</td><td>8:00 AM - 5:00 PM</td></tr>
-                    <tr><td>Sunday</td><td>8:00 AM - 3:00 PM</td></tr>
-                </table>
+      <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Our Gallery</h2>
+            <p class="section-subtitle">Take a look at our cafe</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cafe Interior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Coffee Making">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cafe Space">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Coffee Closeup">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Matcha Preparation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Pastry Display">
+                </div>
             </div>
-            <div class="map">
-                <!-- Simple placeholder for a map -->
-                <div class="map-placeholder">
-                    <p>📌 Map would be embedded here</p>
+        </div>
+    </section>
+    <!-- Contact Section with Form -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">We'd love to hear from you</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Visit Us</h3>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Coffee Lane, Melbourne VIC 3000</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p>(03) 9123 4567</p>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p>hello@thedailygrind.com</p>
+                    </div>
+                    
+                    <h4>Opening Hours</h4>
+                    <table class="hours">
+                        <tr><td>Mon - Fri</td><td>7:00 AM - 4:00 PM</td></tr>
+                        <tr><td>Saturday</td><td>8:00 AM - 5:00 PM</td></tr>
+                        <tr><td>Sunday</td><td>8:00 AM - 3:00 PM</td></tr>
+                    </table>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry">Inquiry Type</label>
+                            <select id="inquiry" name="inquiry">
+                                <option value="general">General Question</option>
+                                <option value="catering">Catering</option>
+                                <option value="events">Events & Bookings</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 The Daily Grind Cafe. All rights reserved.</p>
-        <div class="social-links">
-            <!-- Placeholder for social media icons -->
-            <a href="#">FB</a> | <a href="#">IG</a> | <a href="#">TW</a>
-        </div>
-    </footer>
-
+   
     <script src="script.js">
-        // Menu Filtering Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const menuItems = document.querySelectorAll('.item');
-    
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const category = this.getAttribute('data-category');
-            
-            // Filter items
-            menuItems.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.classList.remove('hidden');
-                    setTimeout(() => {
-                        item.style.display = 'flex';
-                    }, 50);
-                } else {
-                    item.classList.add('hidden');
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 400);
-                }
-            });
-        });
-    });
-});
-        // Theme Toggle Functionality
-const toggleCheckbox = document.getElementById('theme-checkbox');
-const themeLabel = document.getElementById('theme-label');
-
-// Check for saved theme in localStorage
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme) {
-    document.body.classList.add(currentTheme);
-    if (currentTheme === 'dark-theme') {
-        toggleCheckbox.checked = true;
-        themeLabel.textContent = 'Light Mode';
-    }
-}
-
-toggleCheckbox.addEventListener('change', function() {
-    if (this.checked) {
-        document.body.classList.add('dark-theme');
-        document.body.classList.remove('light-theme');
-        localStorage.setItem('theme', 'dark-theme');
-        themeLabel.textContent = 'Light Mode';
-    } else {
-        document.body.classList.add('light-theme');
-        document.body.classList.remove('dark-theme');
-        localStorage.setItem('theme', 'light-theme');
-        themeLabel.textContent = 'Dark Mode';
-    }
-});
-
-// Smooth Scrolling for Navigation Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80, // Offset for fixed header
-                behavior: 'smooth'
-            });
-        }
-    });
-});
 
     </script>
 </body>
