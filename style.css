@@ -113,29 +113,6 @@ body {
     gap: 1rem;
 }
 
-/* Cart Icon */
-.cart-icon {
-    position: relative;
-    cursor: pointer;
-    font-size: 1.3rem;
-    color: var(--text-color);
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--accent-color);
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
 
 /* Hamburger Menu */
 .hamburger {

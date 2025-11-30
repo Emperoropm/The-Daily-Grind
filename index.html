@@ -4,145 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Daily Grind Cafe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-   
 </head>
 <body class="light-theme">
+    <!-- Special Offers Banner -->
+    <div class="offer-banner">
+        <span class="offer-text">🌟 Today's Special: Buy any coffee, get a pastry half price! 🌟</span>
+        <button class="close-offer">&times;</button>
+    </div>
+
     <!-- Header & Navigation -->
     <header>
         <nav class="navbar">
             <div class="logo">The Daily Grind</div>
+            
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
+                <li><a href="#menu-preview">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             
+           
+                
+                <div class="theme-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="theme-checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <span id="theme-label">Dark Mode</span>
+                </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#menu-preview">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
     </header>
 
+   
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Welcome to The Daily Grind</h1>
             <p>Artisan Coffee & Homemade Pastries</p>
-            <a href="#menu" class="btn">View Our Menu</a>
+            <div class="hero-buttons">
+                <a href="#menu-preview" class="btn btn-primary">View Menu</a>
+                <a href="#contact" class="btn btn-secondary">Order Online</a>
+            </div>
         </div>
     </section>
 
     <!-- Menu Preview Section -->
-        <!-- Menu Preview Section -->
-    <section id="menu" class="menu-preview">
-        <h2>Our Menu Favourites</h2>
-        <div class="menu-categories">
-            <button class="category-btn active" data-category="all">All Items</button>
-            <button class="category-btn" data-category="coffee">Coffee</button>
-            <button class="category-btn" data-category="food">Food</button>
-            <button class="category-btn" data-category="tea">Tea & More</button>
-        </div>
-        
-        <div class="menu-items">
-            <!-- Coffee Items -->
-            <div class="item" data-category="coffee">
-                <img src="https://images.unsplash.com/photo-1542181961-9590d0c79dab?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cappuccino">
-                <div class="item-info">
-                    <h3>Cappuccino</h3>
-                    <p>Classic espresso with steamed milk and thick foam</p>
-                    <span class="price">$4.50</span>
-                </div>
+    <section id="menu-preview" class="menu-preview">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <p class="section-subtitle">Discover our delicious offerings</p>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="coffee">Coffee</button>
+                <button class="category-btn" data-category="food">Food</button>
+                <button class="category-btn" data-category="tea">Tea & More</button>
+                <button class="category-btn" data-category="bakery">Bakery</button>
             </div>
             
-            <div class="item" data-category="coffee">
-                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Latte">
-                <div class="item-info">
-                    <h3>Latte</h3>
-                    <p>Smooth espresso with steamed milk and light foam</p>
-                    <span class="price">$4.80</span>
+            <div class="menu-items">
+                <!-- Coffee Items -->
+                <div class="item" data-category="coffee">
+                    <img src="https://images.unsplash.com/photo-1542181961-9590d0c79dab?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cappuccino">
+                    <div class="item-info">
+                        <h3>Cappuccino</h3>
+                        <p>Classic espresso with steamed milk and thick foam</p>
+                        <div class="item-footer">
+                            <span class="price">$4.50</span>
+                            
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="item" data-category="coffee">
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cold Brew">
-                <div class="item-info">
-                    <h3>Cold Brew</h3>
-                    <p>Slow-steeped for 18 hours, smooth and refreshing</p>
-                    <span class="price">$5.20</span>
+                
+                <div class="item" data-category="coffee">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Latte">
+                    <div class="item-info">
+                        <h3>Latte</h3>
+                        <p>Smooth espresso with steamed milk and light foam</p>
+                        <div class="item-footer">
+                            <span class="price">$4.80</span>
+                           
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Food Items -->
-            <div class="item" data-category="food">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Croissant">
-                <div class="item-info">
-                    <h3>Butter Croissant</h3>
-                    <p>Flaky, buttery, baked fresh every morning</p>
-                    <span class="price">$3.80</span>
+                <!-- Additional menu items would continue here with the same structure -->
+                <!-- Food Items -->
+                <div class="item" data-category="food">
+                    <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Avocado Toast">
+                    <div class="item-info">
+                        <h3>Avocado Toast</h3>
+                        <p>Smashed avocado on sourdough with chili flakes</p>
+                        <div class="item-footer">
+                            <span class="price">$12.50</span>
+                           
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="item" data-category="food">
-                <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Avocado Toast">
-                <div class="item-info">
-                    <h3>Avocado Toast</h3>
-                    <p>Smashed avocado on sourdough with chili flakes</p>
-                    <span class="price">$12.50</span>
+
+                <!-- Tea Items -->
+                <div class="item" data-category="tea">
+                    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Chai Latte">
+                    <div class="item-info">
+                        <h3>Chai Latte</h3>
+                        <p>Spiced chai tea with steamed milk</p>
+                        <div class="item-footer">
+                            <span class="price">$4.80</span>
+                           
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            
-            <!-- Tea & More Items -->
-            <div class="item" data-category="tea">
-                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Chai Latte">
-                <div class="item-info">
-                    <h3>Chai Latte</h3>
-                    <p>Spiced chai tea with steamed milk</p>
-                    <span class="price">$4.80</span>
-                </div>
-            </div>
-            
-            <div class="item" data-category="tea">
-                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Matcha Latte">
-                <div class="item-info">
-                    <h3>Matcha Latte</h3>
-                    <p>Premium matcha powder with steamed milk</p>
-                    <span class="price">$5.50</span>
-                </div>
-            </div>
-            
-            <div class="item" data-category="tea">
-                <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Hot Chocolate">
-                <div class="item-info">
-                    <h3>Hot Chocolate</h3>
-                    <p>Rich, creamy chocolate with whipped cream</p>
-                    <span class="price">$4.20</span>
+
+                <!-- Bakery Items -->
+                <div class="item" data-category="bakery">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Croissant">
+                    <div class="item-info">
+                        <h3>Butter Croissant</h3>
+                        <p>Flaky, buttery, baked fresh every morning</p>
+                        <div class="item-footer">
+                            <span class="price">$3.80</span>
+                           
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section with Multimedia -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Our Story</h2>
-                <p>Founded in 2020, The Daily Grind was born from a passion for community and exceptional coffee. We source our beans from sustainable farms and roast them in-house to bring you the perfect cup.</p>
-                <!-- Multimedia Element -->
-                <div class="video-container">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/2K1eA2s_IPo?si=Yh1f9y9XWzJ_5VqJ" title="Latte Art Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cafe Interior">
-            </div>
-        </div>
-    </section>
-
-      <!-- Gallery Section -->
+    <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="container">
             <h2>Our Gallery</h2>
-            <p class="section-subtitle">Take a look at our cafe</p>
+            <p class="section-subtitle">Take a look at our cafe atmosphere</p>
             
             <div class="gallery-grid">
                 <div class="gallery-item">
@@ -166,6 +179,40 @@
             </div>
         </div>
     </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2020, The Daily Grind was born from a passion for community and exceptional coffee. We source our beans from sustainable farms and roast them in-house to bring you the perfect cup.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-coffee"></i>
+                            <h4>Premium Coffee</h4>
+                            <p>Ethically sourced beans, roasted locally</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bread-slice"></i>
+                            <h4>Fresh Bakery</h4>
+                            <p>Daily baked pastries and bread</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h4>Community Hub</h4>
+                            <p>A welcoming space for everyone</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.1&auto=format&fit=crop&w=500&q=60" alt="Cafe Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section with Form -->
     <section id="contact" class="contact">
         <div class="container">
@@ -231,8 +278,10 @@
     </section>
 
    
-    <script src="script.js">
 
-    </script>
+    <!-- Success Message Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
